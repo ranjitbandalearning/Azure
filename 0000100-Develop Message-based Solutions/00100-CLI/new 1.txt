@@ -1,0 +1,85 @@
+PS C:\windows\system32> az group create --name ContosoRG --location eastus
+{
+  "id": "/subscriptions/dc51dc70-6d03-4fc6-b39d-8ed90199b869/resourceGroups/ContosoRG",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "ContosoRG",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+
+
+PS C:\windows\system32> az servicebus namespace create --resource-group ContosoRG --name ContosoSBusNSRANJIT --location eastus
+{
+  "createdAt": "2023-01-17T07:53:49.617000+00:00",
+  "disableLocalAuth": false,
+  "encryption": null,
+  "id": "/subscriptions/dc51dc70-6d03-4fc6-b39d-8ed90199b869/resourceGroups/ContosoRG/providers/Microsoft.ServiceBus/namespaces/ContosoSBusNSRANJIT",
+  "identity": null,
+  "location": "East US",
+  "metricId": "dc51dc70-6d03-4fc6-b39d-8ed90199b869:contososbusnsranjit",
+  "name": "ContosoSBusNSRANJIT",
+  "privateEndpointConnections": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "ContosoRG",
+  "serviceBusEndpoint": "https://ContosoSBusNSRANJIT.servicebus.windows.net:443/",
+  "sku": {
+    "capacity": null,
+    "name": "Standard",
+    "tier": "Standard"
+  },
+  "status": "Active",
+  "systemData": null,
+  "tags": {},
+  "type": "Microsoft.ServiceBus/Namespaces",
+  "updatedAt": "2023-01-17T07:54:32.763000+00:00",
+  "zoneRedundant": false
+}
+
+
+
+
+
+
+
+
+PS C:\windows\system32> az servicebus queue create --resource-group ContosoRG --namespace-name ContosoSBusNSRANJIT --name ContosoOrdersQueue
+{
+  "accessedAt": "0001-01-01T00:00:00",
+  "autoDeleteOnIdle": "10675199 days, 2:48:05.477581",
+  "countDetails": {
+    "activeMessageCount": 0,
+    "deadLetterMessageCount": 0,
+    "scheduledMessageCount": 0,
+    "transferDeadLetterMessageCount": 0,
+    "transferMessageCount": 0
+  },
+  "createdAt": "2023-01-17T08:05:47.507000+00:00",
+  "deadLetteringOnMessageExpiration": false,
+  "defaultMessageTimeToLive": "10675199 days, 2:48:05.477581",
+  "duplicateDetectionHistoryTimeWindow": "0:10:00",
+  "enableBatchedOperations": true,
+  "enableExpress": false,
+  "enablePartitioning": false,
+  "forwardDeadLetteredMessagesTo": null,
+  "forwardTo": null,
+  "id": "/subscriptions/dc51dc70-6d03-4fc6-b39d-8ed90199b869/resourceGroups/ContosoRG/providers/Microsoft.ServiceBus/namespaces/ContosoSBusNSRANJIT/queues/ContosoOrdersQueue",
+  "location": "eastus",
+  "lockDuration": "0:01:00",
+  "maxDeliveryCount": 10,
+  "maxMessageSizeInKilobytes": 256,
+  "maxSizeInMegabytes": 1024,
+  "messageCount": 0,
+  "name": "ContosoOrdersQueue",
+  "requiresDuplicateDetection": false,
+  "requiresSession": false,
+  "resourceGroup": "ContosoRG",
+  "sizeInBytes": 0,
+  "status": "Active",
+  "systemData": null,
+  "type": "Microsoft.ServiceBus/namespaces/queues",
+  "updatedAt": "2023-01-17T08:05:47.530000+00:00"
+}
